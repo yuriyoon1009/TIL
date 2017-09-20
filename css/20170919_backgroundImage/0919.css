@@ -1,0 +1,27 @@
+div{background:pink; width:395px; height:380px;
+  	 padding:10px 0 0 5px;
+  	}
+
+  	h2{
+	  	width:355px;
+	  	height:350px;
+	  	margin:0 auto;	
+	  	overflow:hidden;
+	  	text-indent:-9999px;
+	  	background:url('img/sprite.png') no-repeat -18px 0;
+	
+  	}
+
+  	button{
+  		width:18px;
+  		height:18px;
+  		overflow:hidden;
+  		border:0;
+  		padding-top:15px;
+  		line-height:15px;
+  		background:url(img/sprite.png) no-repeat 0 0;
+  	}
+
+  	.btn-next{
+  		background-position:0 -18px;
+  	}
