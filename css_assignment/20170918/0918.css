@@ -1,0 +1,28 @@
+@import url("./reset.css");
+
+/* 초기 설정 시작 */
+.wrapper {
+  padding: 10px;
+  background: yellow;
+  width: 500px;
+}
+.tab-boards {
+  background: skyblue;
+}
+.tab-board {
+  background: lightslategray;
+}
+.tab {
+  background: lightcoral;
+}
+.board {
+  padding: 5px;
+  background: lightgreen;
+}
+.board-item {
+  background: lightsalmon;
+}
+.more {
+  background: white;
+}
+/* 초기 설정 끝 */

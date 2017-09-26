@@ -1,0 +1,66 @@
+.wrapper {
+  width: 450px;
+  height: 450px;
+  position: relative;
+  background: red;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  box-sizing: border-box;
+  border: 1px solid #000;
+
+  /* position과 flex, grid 등을 쓰지 않는 제약 조건이 있었다. */
+  /* 음수margin은 왼쪽과 위쪽 margin에 대해 "잡아 당기는"듯한 영향을 주므로 float를 left로 했다. */
+  /* 이때 wrapper box의 너비가 한정적이므로 좌에서 우로, 위에서 아래로 numbered box가 차곡차곡 쌓이게 된다. */
+  float: left;
+}
+
+/* 첫번째로 1번 box의 위치를 잡아놓고 나면 이것이 기준이 된다. */
+/* 나머지 box들은 숫자 순서에 따라 하나씩 음수 margin값으로 위치를 옮기면 된다. */
+/* 반드시 순서대로 옮길 필요는 없지만 뒤 box는 앞 box의 위치에 영향을 받으므로 순서대로 하는 것이 편하다. */
+/* 1번 box가 wrapper의 가장 끝에 있기 때문에 일단 앞 box롤 옮겨놓고 나면 뒤 box는 1번의 바로 뒤(다음행)애 븉개 된다. */
+.box-1 {
+  margin-top: 300px;
+  margin-left: 300px;
+}
+
+.box-2 {
+  margin-top: -150px;
+  margin-left: 150px;
+}
+ 
+.box-3 {
+  margin-top: -300px;
+  margin-left: 300px;
+}
+
+.box-4 {
+  margin-top: -300px;
+  margin-left: 150px;
+}
+
+.box-5 {
+  margin-top: -450px;
+  margin-left: 300px;
+}
+
+.box-6 {
+  margin-top: -150px;
+}
+
+.box-7 {
+  margin-top: -450px;
+  margin-left: 150px;
+}
+
+.box-8 {
+  margin-top: -300px;
+}
+
+.box-9 {
+  margin-top: -450px;
+}

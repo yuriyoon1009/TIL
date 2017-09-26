@@ -1,0 +1,43 @@
+
+
+
+.board{position:relative; background:yellow; margin-top:20px;}
+
+.board ul, .notice-more, .pds-more{display:none;}
+
+
+.board-active ul,
+.board-active>a {
+  display:block! important;
+}
+
+.icon-more::before{
+  content:"p";
+  font-family:"webcafeIcon";
+  position:relative;
+  top:2px;
+  color:hsla(120, 30%, 50%,1);
+  margin-right:5px;
+}
+
+.notice-more, .pds-more{
+  background:pink;
+  position:absolute;
+  top:-8px;
+  right:-8px;
+  padding:8px;
+}
+
+.notice-heading, .pds-heading{background:lime; position:absolute; top:45px;
+left:0; cursor:pointer; border:1px solid #aaa; border-radius:5px 5px 0 0; 
+color:#999; padding:5px 15px; }
+
+.notice-heading, .pds-heading{background:#fff! important; color:#f00; 
+border-inline-end-color: :#f00 #f00 #fff #f00;
+}
+
+.notice-list li::before{content:"r"; }
+
+.notice-list a{white-span:nowrap; background:orange; width:285px; display:inline-block;
+overflow:hidden; text-overflow:ellipsis;}
+

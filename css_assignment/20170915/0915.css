@@ -1,0 +1,39 @@
+.wrapper {
+  width: 450px;
+  height: 450px;
+  position: relative;
+  background: red;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  box-sizing: border-box;
+  border: 1px solid #000;
+}
+
+.box-1 {
+}
+
+.box-2 {
+}
+ 
+.box-3 {
+}
+
+.box-4 {
+}
+
+.box-5 {
+}
+
+.box-6 {
+
+.box-7 {
+}
+
+.box-8 {
+
+.box-9 {

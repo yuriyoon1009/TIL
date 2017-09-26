@@ -1,0 +1,1258 @@
+@charset "utf-8";
+@import url("./normalize.css");
+@import url("./reset.css");
+@import url("./fonts.css");
+
+/* 숨김 콘텐츠 */
+
+.readable-hidden,
+legend {
+  background-color: red;
+  position: absolute;
+  left: -9999em;
+  /* 과거의 숨김트릭
+font-size: 0;
+line-height: 0;
+width: 1px;
+height: 1px;
+margin: -1px 0 0 -1px; */
+}
+
+
+/* 본문 스타일 */
+
+html {
+  font-size: 10px;
+}
+
+body {
+  color: #181818;
+  font-size: 1.4rem;
+  font-family: "Noto Sans Regular", sans-serif;
+  background-color: #fff;
+}
+
+
+/* 링크 스타일 */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #f00;
+}
+
+
+/* 기본 box-sizing 재설정. 전체 *를 선택*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.header,
+.visual,
+.main-content,
+.slogan,
+.footer {
+  width: 940px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  background: url("images/bg_flower.png") no-repeat 50% 0, linear-gradient(to bottom, #aaa 0%, #fff 50%, #fff 100%);
+  background-color: #aaa;
+}
+
+
+/* 헤더 */
+
+.header {
+  background-color: #fff;
+  padding: 0 30px 30px;
+  position: relative;
+  border-radius: 0 0 25px 25px/ 0 0 25px 25px;
+}
+
+
+/* 로고 */
+
+.logo {
+  position: absolute;
+  top: 45px;
+  left: 65px;
+}
+
+
+/* 안내링크 */
+
+.info-menu {
+  display: flex;
+  justify-content: flex-end;
+  text-transform: uppercase;
+  position: relative;
+  /* right: 10px; */
+}
+
+.info-menu a {
+  display: inline-block;
+  padding: 8px 10px;
+}
+
+.info-menu li:last-child::after {
+  content: "";
+}
+
+.info-menu li::after {
+  content: ":";
+}
+
+
+/* 메인메뉴 */
+
+.main-menu {
+  background: rgba(255, 147, 25, 1) linear-gradient(to bottom, rgba(255, 147, 25, 1) 0%, rgba(252, 100, 30, 1) 35%, rgba(252, 100, 30, 1) 70%, rgba(255, 147, 25, 1) 99%);
+  border-top: 2px solid #000;
+  border-radius: 0 0 5px 5px;
+  height: 47px;
+  padding-left: 225px;
+}
+
+.main-menu>li {
+  float: left;
+  position: relative;
+}
+
+.main-menu span {
+  /*글자까지만이 아니라 자기가 속해있는 부모영역까지 커서먹게 하기 */
+  color: #fff;
+  display: block;
+  cursor: pointer;
+  font: 1.6rem "Noto Sans Bold", sans-serif;
+  line-height: 45px;
+  padding: 0 20px;
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0px 1px 0 #000, 0 -1px 0 #000;
+}
+
+.main-menu span:hover,
+.main-menu span:focus {
+  color: #ff0;
+  /* 디자인적으로 인지가능하면 없애도 되지만, 그렇지 않는경우 절대 없애면안되 웹표준 */
+  outline: 0;
+}
+
+.main-menu span:hover::after,
+.main-menu span:focus::after {
+  /* 가짜상자 */
+  display: block;
+  content: "";
+  border-top: 2px solid #000;
+}
+
+
+/* 서브메뉴 */
+
+.sub-menu {
+  position: absolute;
+  top: 47px;
+  font-size: 0;
+  white-space: nowrap;
+}
+
+.sub-menu a,
+.sub-menu li {
+  font-size: 1.4rem;
+  /*커서범위 넓게 해주려고 li에 안넣고 자식에 넣은것임*/
+  /* padding: 5px 10px 5px 0; */
+  /* 위아래 여백을주었을떄 위랑 겹치닌깐 블록화 ㄱ ㄱ  */
+  display: inline-block;
+}
+
+.sub-menu a {
+  padding: 5px 10px 5px 0;
+  margin-right: 5px;
+}
+
+.sub-menu a::before {
+  content: '\e80a';
+  font-family: "fontello";
+  /* 없어도 되는 코드이지만, 가운데로 보낼려고 */
+  /* position: relative; */
+  /* top: 2px; */
+  margin-right: 5px;
+}
+
+.sub-menu a:hover::before,
+.sub-menu a:focus::before {
+  content: '\e808';
+}
+
+.about-html {
+  display: none;
+}
+
+.about-css {
+  display: none;
+}
+
+.web-standards {
+  display: none;
+}
+
+.web-accessibility {
+  display: none;
+  right: 0;
+}
+
+.qna {
+  display: none;
+  right: 0;
+}
+
+.archive {
+  display: none;
+  right: 0;
+}
+
+.sub-menu-active {
+  display: block!important;
+}
+
+
+/* 비주얼 */
+
+@keyframes text-ani {
+  0% {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 1);
+    transform: translate(400px, 75px);
+  }
+}
+
+@keyframes flower-ani {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.visual {
+  height: 120px;
+  position: relative;
+}
+
+.visual::before,
+.visual::after {
+  /* 꽃을 넣기 위한 박스 */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: flower-ani 5s infinite;
+}
+
+.visual::before {
+  background: url("images/ani_flower_01.png") no-repeat 0 -15px, url("images/ani_flower_02.png") no-repeat 670px 0;
+  /* animation: flower-ani1 4s 2s both;
+animation-iteration-count: infinite;
+animation-timing-function: ease-in-out; */
+}
+
+.visual::after {
+  background: url("images/ani_flower_03.png") no-repeat 300px 0, url("images/ani_flower_04.png") no-repeat 800px 0;
+  /* animation: flower-ani2 3s 1s both;
+animation-iteration-count: infinite;
+animation-timing-function: ease-in-out; */
+  animation-delay: 3s;
+}
+
+.visual-text {
+  width: 500px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* name | duration | fillmode */
+  animation: text-ani 2s forwards;
+  /* 정지버튼에 활용. animation-play-state: paused; */
+}
+
+
+/* 메인 콘텐츠 */
+
+.main-content {
+  background-color: #fff;
+  border-radius: 25px 25px 0 0;
+  padding: 30px;
+  min-height: 400px;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+/* 봉이한거 로그인 영역 */
+
+
+/* .login {
+background-color: orange;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.login-heading {
+color: yellow;
+font-size: 1.8rem;
+font-weight: 600;
+padding: 0 0 5px 10px;
+}
+
+.login-form {
+background-color: #fff;
+padding: 10px;
+border-radius: 5px;
+font-size: 1.2rem;
+font-weight: 400;
+}
+fieldset{}
+fieldset label {
+display: inline-block;
+width: 50px;
+}
+
+fieldset input {
+display: inline-block;
+width: 86px;
+font-size: 0.8rem;
+text-indent: 0.2rem;
+}
+
+.btn-login {
+position: absolute;
+width: 50px;
+height: 50px;
+display: inline-block;
+background-color: orangered;
+border-radius: 5px;
+border: none;
+color: #fff;
+}
+
+.member {
+border-top: 1px solid rgba(207, 203, 203, 0.76);
+padding: 10px 0 0;
+}
+
+.member li {
+display: inline-block;
+} */
+
+
+/* 그룹 */
+
+.group {}
+
+.group1 {
+  width: 250px;
+}
+
+.group2 {
+  width: 380px;
+}
+
+.group3 {
+  width: 190px;
+}
+
+
+/* 로그인 영역 */
+
+.login {
+  background: radial-gradient(circle at right top, orange, orangered);
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 5px 5px 0 0 #aaa;
+}
+
+.login-heading {
+  color: yellow;
+  font-size: 1.5rem;
+  font-family: 'Noto Sans Bold';
+  margin: 0 0 10px 10px;
+}
+
+.login-form {
+  background: #fff;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 10px 0 10px;
+}
+
+.member {
+  background: #fff;
+  border-radius: 0 0 5px 5px;
+  padding: 10px 10px 10px 10px;
+  /* display: flex;
+justify-content: space-between; */
+}
+
+.member::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+/* first, last child로 가능 */
+
+.member li {
+  letter-spacing: -1px;
+}
+
+.member li:nth-child(odd) {
+  float: left;
+}
+
+.member li:nth-child(even) {
+  float: right;
+}
+
+.member a {
+  padding: 5px 0;
+}
+
+.member a::before {
+  content: "g";
+  font-family: "webcafeIcon";
+  /* 이건 폰트 잘못만들어서 간격 임의로 지정해주는거임 */
+  position: relative;
+  top: 2px;
+  color: red;
+}
+
+.user-email,
+.user-pw {
+  margin-bottom: 6px;
+  font-size: 0;
+}
+
+.login-form label,
+.login-form input,
+.btn-login {
+  font-size: 1.4rem;
+}
+
+.login-form label {
+  width: 4em;
+  display: inline-block;
+}
+
+.login-form input {
+  width: 98px;
+  height: 22px;
+  border: 1px solid #aaa;
+  padding: 0 0 0 5px;
+}
+
+
+/* 에러 뭐지? 헐 diplay에 absolute를 넣었다니.... */
+
+.login-form fieldset {
+  position: relative;
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 4px;
+}
+
+.btn-login {
+  position: absolute;
+  /*브라우저 마다 다른 버튼문제를 초기화시키기 reset에 넣어도됨*/
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0 5px;
+  border: 0;
+  width: 50px;
+  height: 50px;
+  background-color: orangered;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 3px;
+}
+
+
+/* 유효성 검사 배너 링크 */
+
+.validation {
+  margin-top: 20px;
+}
+
+.validation-list li {
+  margin-bottom: 10px;
+}
+
+.validation-list a {
+  display: block;
+  border: 1px solid #3E3E3E;
+  padding: 5px 10px 5px 45px;
+  border-radius: 20px;
+  background: url("images/validation_icon.png") no-repeat 15px 50%, linear-gradient(to top, #eee, #ccc);
+}
+
+
+/* 
+비포어에 아이콘 먹이면 왜안되지????
+지금은 hover 효과가 없으닌깐, 굳이 before(인라인요소)가짜상자를 만들 필요는 없음.
+비포어 하려면 또 백그라운드 사이즈도 따로 지정해줘야해서 귀찮음
+합리적인 선택인지를 판단해보고 a박스의 백그라운드할지 before라는 빈상자를 만들어주도록
+저번에 ::before로 한건 아이콘을 폰트로 넣어서 그 영역을 따로 빈상자를 만들어 줘야해서였음
+지금 같은경우면 그냥 a:hover로하면됨
+*/
+
+
+/* 웹 관련 용어 */
+
+.term {
+  background: linear-gradient(to bottom, #eee, #ccc);
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.term-heading {
+  font-family: "Noto Sans Bold";
+  font-size: 1.6rem;
+}
+
+.term-list {}
+
+.term-list::after {
+  content: "";
+  /* clear속성 쓰려면 블록되야함 */
+  clear: both;
+  display: block;
+}
+
+.term-list-heading,
+.term-list-brief {
+  float: right;
+  width: 145px;
+}
+
+.term-list-heading {
+  color: #296897;
+  font-weight: bold;
+  margin-bottom: 5px;
+  /* 패딩은 음수를 쓸수 없지만, 마진은 음수를 쓸수있다 */
+  margin-top: 11px;
+}
+
+.term-list-thumbnail {
+  float: left;
+}
+
+.term-list-thumbnail img {
+  /* img 인라인속성 밑에 여백없애기 위해 블록으로*/
+  display: block;
+}
+
+.term-list-thumbnail {
+  margin-top: 15px;
+}
+
+.term-list dt:nth-child(6n+4),
+.term-list dd:nth-child(6n+6) {
+  float: left;
+}
+
+.term-list dd:nth-child(6n+5) {
+  float: right;
+}
+
+
+/* .term {
+  background: #eee linear-gradient(to bottom, #eee, #ccc);
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 15px;
+}
+
+.term-list {}
+
+.term-heading {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.term-list-heading {
+  font-weight: 700;
+  display: inline-block;
+  text-align: left;
+  color: #0C67AA;
+}
+
+.term-list-thumbnail {
+  display: block;
+  float: left;
+  margin-right: 10px;
+}
+
+.term-list-brief {
+  font-size: 1.2rem;
+  display: block;
+} */
+
+
+/* 검색*/
+
+.search {
+  background: linear-gradient(to top, #eee, #ccc);
+  border: 1px solid #aaa;
+  border-bottom: #fff;
+  border-radius: 15px 15px 0 0;
+  padding: 20px 25px;
+}
+
+.search-form {
+  background-color: pink;
+}
+
+.flex-container {
+  /* 파이어폭스 보면서하기. web-kit계열에서는 에러남 */
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-form label,
+.search-form input,
+.btn-search {
+  vertical-align: middel;
+}
+
+.search-form label::before {
+  /* 폰트로 컨텐츠 추가를 위해 빈상자 필요 */
+  content: "z";
+  font-family: "webcafeIcon";
+  position: relative;
+  top: 2px;
+}
+
+.search-form input {
+  /* 가급적 아이디값 호출하지말기 */
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 0 0 0 5px;
+  height: 22px;
+  /* width: calc(100% - 120px); */
+}
+
+.btn-search {
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 0 10px;
+  color: #fff;
+  background: linear-gradient(to bottom, #333, #999);
+  font-size: 1.2rem;
+  height: 22px;
+}
+
+/*공지사항*/
+
+.board {
+position: relative;
+margin-top: 20px;
+background: yellow;
+}
+
+.board ul,
+.notice-more,
+.pds-more {
+display: none;
+}
+
+.board-active ul,
+.board-active>a {
+display: block!important;
+}
+
+.notice-heading,
+.pds-heading {
+position: absolute;
+top: 0;
+padding: 5px 15px;
+cursor: pointer;
+border: 1px solid #aaa;
+border-radius: 5px 5px 0 0;
+background: linear-gradient(to bottom, #eee, #ccc);
+color: #666;
+}
+
+.notice-heading {
+left: 0
+}
+
+.pds-heading {
+left: 83px
+}
+
+.board-active .notice-heading,
+.board-active .pds-heading {
+background: #fff!important;
+color: #f00;
+border-color: #f00 #f00 #fff #f00;
+}
+
+.notice-list,
+.pds-list {
+padding-top: 45px;
+background: aqua;
+min-height: 170px;
+}
+
+/*.notice_list li,
+.pds-list li {
+margin: 5px 0
+}*/
+
+.notice-list li::before,
+.pds-list li::before {
+content: "r";
+font-family: "webcafeIcon";
+position: relative;
+top: -1px;
+}
+
+.notice-list a,
+.pds-list a {
+display: inline-block;
+width: 285px;
+white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
+}
+
+.board time {
+float: right;
+}
+
+.icon-more::before {
+content: "p";
+font-family: "webcafeIcon";
+position: relative;
+top: 2px;
+color: hsla(120, 30%, 50%, 1);
+margin-right: 5px;
+}
+
+.notice-more,
+.pds-more {
+position: absolute;
+top: -8px;
+right: -8px;
+padding: 8px;
+}
+
+.news{margin-top:20px;}
+/* 봉이한거 float로 해결하기
+.search {
+  background: #ccc linear-gradient(to bottom, #ccc, #fff);
+  padding: 20px 25px;
+  border-top: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+.search-form {}
+
+.search-form::before {
+  font-family: "webcafeIcon";
+  content: "z";
+}
+
+.search-form fieldset {
+  display: inline-block;
+}
+
+.search-form label {
+  margin-right: 5px;
+}
+
+.search-form input {
+  margin-right: 5px;
+  width: 203px;
+}
+
+.btn-search {
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  color: #fff;
+  background: #181818 linear-gradient(to bottom, #181818, #ccc);
+} */
+
+
+/* 슬로건 */
+
+
+
+/* 푸터 */
+
+
+/*
+    <!--news-->
+                <div class="news">
+                  <h2 class="news-heading">새소식</h2>
+                  <a href="#">
+                    <article class="news-item">
+                      <h3 class="news-item-heading">w3c 사이트가 리뉴얼</h3>
+                      <time datetime="2017-09-19">2017.09.19</time>
+                      <p class="news-item-brief">
+                        디자인 및 다양한 view 환경을 고려하여 구성되어 있으며,
+                        기존보다 ㄹ어ㅏㄹ어ㅏㄹ아러아라얼아ㅓㄹ아ㅓ라아러아러ㅏㅇ
+                        어ㅏ어라어라어ㅏ러아ㅓ라어라어ㅓㅓㅏㅓ
+                        ㄹ알아러아러아ㅓ라얼알아.
+                      </p>
+                      <figure class="news-item-thumbnail">
+                        <img src="images/news.gif" alt="HTML5">
+                        <figcaption>w3c 리뉴얼</figcaption>
+                      </figure>
+                    </article>
+                  </a>
+                  <a href="#" class="news-more icon-more" title="새소식" target="_blank">더보기</a>
+                </div>
+                <!--news-->
+
+*/
+
+
+/*.news h2{color:#f00; font-weight:bold; }
+.news h3, .news time, .news p{width:100%; background:red;}
+
+.news-item{position:relative; padding-left:130px;}
+.news-item figure{position:absolute; left:0; top:0; width:20%; background:yellow;}
+
+.news{position:relative;}
+.news-more{position:absolute; top:0; right:0;}*/
+
+.news{
+  margin-top:20px;
+  position:relative;
+  }
+
+.news::before{
+  content:"";
+  position:absolute;
+  top:35px;
+  left:0;
+  width:80%;
+  height:1px;
+  background:blue;
+  background:linear-gradient(to right, #aaa, #fff);
+}
+
+.news-more{
+  position:absolute;
+  top:-8px;
+  right:-8px;
+  padding:8px;
+}
+
+.news-heading{
+  font-weight:bold;
+  font-size:1.6rem;
+
+  font-family:"Noto Sans Bold";
+  color:#f00;
+}
+
+.news a:nth-child(2){
+ 
+  margin-top:20px;
+  display:block;
+}
+
+.news-item{
+  padding-left:145px;
+  position:relative;
+}
+
+.news-item-heading{
+  font-weight:bold;
+  font-size:1.5rem;
+  margin-left:-1em;
+  position:relative;
+  top:-5px;
+}
+
+.news-item-heading::before{
+  content:'r';
+  font-family:"webcafeIcon";
+  position:relative;
+  top:2px;
+}
+
+
+.news-item-heading, .news-item-date, .news-item-brief{
+  background:orange;
+  font-weight:bold; 
+  font-size:1.5rem;
+}
+
+.news-item-heading{
+  font-weight:bold;
+  font-size:1.5rem;
+  margin-top:-10px;
+  margin-left:-1em;
+}
+
+.news-item-brief{
+  line-height:1.5;
+}
+
+.news-item-thumbnail{
+  position:absolute;
+  top:33px;
+  left:0;
+  background:silver;
+}
+
+.news-item-thumbnail figcaption{
+  margin-top:15px; text-align:center;
+}
+
+.news-item-thurmnail img{box-shadow:0 15px 0 0 rgba(0,0,0,.5);}
+
+
+/**/
+.event-related{
+  background:linear-gradient(to bottom, #eee, #ccc);
+  border-radius:5px;
+  border:1px solid #aaa;
+  padding:10px;
+}
+
+
+.event{border-bottom:1px solid #aaa;  position:relative;}
+
+.event-heading{font-size:1.5rem; font-weight:bold; margin-bottom:10px;}
+
+.event-heading span{color:red;}
+
+/*#event-detail{margin-bottom:10px;}*/
+
+.event-thumbnail img{
+  border:1px solid #aaa;
+  box-shadow:5px 5px 0 0 rgba(0,0,0,0.3);
+  margin-bottom:10px;
+}
+.event-brief{
+ margin-top:10px;
+}
+
+.event-brief em{
+  display:block;
+}
+
+.btn-event{
+  position:absolute;
+  top:8px;
+  right:0;
+  /*height:18px;
+  background:yellow;*/
+}
+
+.btn-event-prev, .btn-event-next{
+  overflow:hidden;
+  width:19px;
+  height:18px;
+  padding:18px 0 0 0;
+ 
+  margin:0;
+  background:url('images/back_forward.png') no-repeat 0 0;
+}
+
+.btn-event-next{background-position:-36px 0; right:20px; margin-left:5px;}
+
+
+.event-heading span{
+  color:#f00;
+}
+
+.related{padding-top:10px; }
+.related-list{
+  height:20px;
+  background:#fff;
+  overflow:hidden;
+  margin-top: 10px;
+  border:1px solid #aaa;
+  border-radius:5px;
+  transition:all 0.5s;
+}
+
+/*transition-property:height, paddig, background, border-radius; trnasition-duration:1s, 2s, 1s,1s; animation-delay:0s 1s 0s 1s; transtion:height 1s 0s, padding 1s 1s,*/
+
+
+.related-list:hover, .related-list:focus{height:147px; padding:10px 0;}
+
+.favorite {
+    margin-top: 20px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #eee, #ccc);
+    padding: 10px;
+    position: relative;
+}
+
+.favorite-heading {
+    font-family: "Noto Sans Bold";
+    font-size: 1.5rem;
+}
+
+.favorite-heading span {
+    color: #f00;
+}
+
+.favorite-list {
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.favorite-list li {
+    line-height: 20px;
+    counter-increment: number;
+    position: relative;
+}
+
+.favorite-list li::before {
+    content: counter(number, decimal);
+    background: #aaa;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0 5px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.up,
+.down,
+.stop {
+    box-sizing: border-box;
+    background: url(images/rank.png) no-repeat;
+    width: 9px;
+    height: 11px;
+    padding-top: 11px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.stop {
+    background-position: 0 50%;
+}
+
+.down {
+    background-position: 0 100%;
+}
+
+.favorite-more {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 8px;
+}
+
+.favorite-more::before {
+    content: "p";
+    font-family: "webcafeIcon";
+    position: relative;
+    top: 2px;
+    color: #23f321;
+    margin-right: 3px;
+}
+
+.slogan{position:relative;
+
+background-image:url("images/webcafe-logo.png")}
+
+
+.slogan-heading{
+  position:absolute;
+  padding-top:95px;
+  left:50px;
+  bottom:-35px;
+  overflow:hidden;
+  width:110px;
+  height:83px;
+  background: url("images/coffee.png") no-repeat 0 0;
+
+}
+
+/*.slogan-heading::before {
+    content: "";
+    background: url(images/coffee.png) no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}*/
+
+
+
+.slogan-content {
+    margin: 10px 80px 10px 170px;
+    color: #a09784;
+}
+
+.slogan-content q {
+    font-family: "Noto Sans Bold";
+}
+
+.slogan-content q::before {
+    font-size: 2em;
+    position: relative;
+    top: 10px;
+}
+
+.slogan-content q::after {
+    content: "";
+}
+/*
+.footer-bg{width:100%;
+background:#aaa;}
+
+.footer{width:100%;}
+
+.guide{display:flex; width:300px;
+background:#000; padding:10px 0;}
+
+.guide li{padding-right:10px;}
+.guide li:first-child{padding-left:0;}*/
+
+
+.footer{position:relative;}
+
+.footer-logo{position:absolute; 
+top:35px; left:35px;}
+
+.tech-logo{position:absolute;
+top:15px; right:0;}
+
+.guide, .addres, .copyright{
+  margin:10px 80px 10px 180px;
+}
+.guide{
+  background:#7b8385;
+  color:#fff;
+  display:flex;
+  border-radius:20px;
+  justify-content:space-between;
+}
+
+.address span{
+  margin-right:15px;
+}
+
+.guide a{
+  display:block;
+  padding:8px 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.favorite{
+  margin-top:20px; 
+}
+
+.favorite-list{
+  margin-top:10px;
+  background:yellow;
+  line-height:  
+}
+
+/*.favorite-list li{
+  background:pink;
+  counter-ifcrelemet;
+}*/
+/*
+.favorite_list li::before{
+  background:#999;
+  color:#fff;
+  font-size:1.2rem;
+  padding:0 5px;
+  border-radius:3px
+  margin-right 5px:
+  content:counter(number,decimal);
+  position:relative;
+}
+
+
+.visual::after{}
+.list-list em{
+  background:url )
+}
+.favorite img{background:lime; 
+overflow:hidden; top:0; right:0;  }
+/*.stope{gkdounr}*/
+/*
+.down{background-position:0 100% !important;}
+
+.favorite-list .li:first-child{
+  margin-top:0
+}*/
+
+
+/*.related-list:hover{animation:sliding-down 1s forwards reverse}*/
+/*.related-list::after{display:block; content:""; clear:both;}*/
+
+/*@keyframes sliding-down{
+  0%{
+    height:27px;
+  }
+  100%{
+    height:147px;
+    padding:10px 0;
+  }
+}*/
+
+
+
+/*.news h2{color:#f00; font-weight:bold;}
+.news-item{display:flex; flex-direction:column; flex-wrap:wrap;}
+.news figure{order:-1; background:purple; width:20%;}
+.news p{ background:black; width:80%; }
+.news h3{ background:blue; width:80%;}
+.news time{ background:red; width:80%;}*/
+
+
+/*.news figure{float:left; width:20%; background:yellow;}*/
+
